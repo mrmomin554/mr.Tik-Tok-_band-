@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <p2>⚠️ADMIN-MR-MOMIN⚠️ </p2>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠ আপনার অ্যাকাউন্ট শেষ!</title>
+    <style>
+        body {
+            background: radial-gradient(circle, #000000, #1a0000, #4d0000);
+            color: #ff0000;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 20px;
+            animation: flicker 2s infinite;
+        }
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 0.99;
+            }
+            20%, 24%, 55% {
+                opacity: 0.4;
+            }
+        }
+        .form-container {
+            margin: auto;
+            padding: 20px;
+            border: 3px dashed #ff0000;
+            display: inline-block;
+            box-shadow: 0 0 20px 5px #ff0000;
+            background: #200000;
+        }
+        input[type="text"] {
+            padding: 15px;
+            margin: 10px;
+            border: none;
+            background-color: #330000;
+            color: #ff0000;
+            font-size: 18px;
+            text-align: center;
+            width: 80%;
+            box-shadow: 0 0 10px 2px red;
+        }
+        button {
+            padding: 15px 30px;
+            background: linear-gradient(to right, #ff0000, #800000);
+            color: white;
+            border: 2px solid #ff0000;
+            cursor: pointer;
+            font-size: 18px;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px 2px red;
+        }
+        button:hover {
+            background: linear-gradient(to right, #800000, #ff0000);
+            box-shadow: 0 0 20px 4px #ff0000;
+        }
+        .error-message {
+            color: #ff0000;
+            font-size: 20px;
+            margin-top: 20px;
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            0%, 100% {
+                text-shadow: 2px 2px #ff0000, -2px -2px #800000;
+            }
+            50% {
+                text-shadow: -2px -2px #ff0000, 2px 2px #800000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>⚠ আপনার টিক টক অ্যাকাউন্ট শেষ হতে চলেছে ⚠</h1>
+    <div class="form-container">
+        <p>আপনার টিক টক ইউজারনেম সাবমিট করুন:</p>
+        <input type="text" id="username" placeholder="ইউজারনেম দিন">
+        <br>
+        <button onclick="submitForm()">🔥 সাবমিট করুন 🔥</button>
+    </div>
+    <p class="error-message" id="error"></p>
+    <script>
+        function submitForm() {
+            let username = document.getElementById('username').value;
+            if (!username) {
+                document.getElementById('error').innerText = "⚠ ইউজারনেম দিতে হবে, নাহলে হ্যাক শুরু হবে!";
+                return;
+            }
+            document.body.innerHTML = `
+                <h1 style="color: #ff0000; animation: glitch 2s infinite;">⚠ হ্যাকিং শুরু হয়েছে... ⚠</h1>
+                <div style="width: 100%; height: 20px; background: linear-gradient(to right, #ff0000, #800000); animation: loading 5s linear infinite;"></div>
+                <p style="color: #ffcc00;">আপনার সমস্ত ডেটা মুছে ফেলা হচ্ছে...</p>
+            `;
+            setTimeout(() => {
+                document.body.innerHTML = `
+                    <h1 style="color: #ff0000; animation: glitch 1s infinite;">💀 আপনার অ্যাকাউন্ট ধ্বংস হয়ে গেছে! 💀</h1>
+                    <p style="color: #ffffff;">⚠ টিক টক ডাটাবেসে আপনার তথ্য লিক করে দেওয়া হয়েছে।</p>
+                    <p style="color: #ffcc00;">🔥 কেউ আপনাকে বাঁচাতে পারবে না। 🔥</p>
+                `;
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
